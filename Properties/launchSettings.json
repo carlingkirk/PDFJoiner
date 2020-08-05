@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PDFJoiner": {
+      "commandName": "Project",
+      "commandLineArgs": "\"D:\\Documents\\Crosswords\""
+    }
+  }
+}
