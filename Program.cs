@@ -1,6 +1,6 @@
-﻿using PdfSharp.Drawing;
-using PdfSharp.Pdf;
-using PdfSharp.Pdf.IO;
+﻿using PdfSharpCore.Drawing;
+using PdfSharpCore.Pdf;
+using PdfSharpCore.Pdf.IO;
 using System;
 using System.IO;
 using System.Linq;
@@ -12,7 +12,12 @@ namespace PDFJoiner
     {
         static void Main(string[] args)
         {
-            var filepath = new DirectoryInfo(args[0]);
+            var filepath = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/Documents/Crosswords");
+            if (args.Any())
+            {
+                filepath = new DirectoryInfo(args[0]);
+            }
+
             var pdfFiles = filepath.EnumerateFiles("*.pdf").OrderBy(f => f.CreationTimeUtc).ToList();
             if (pdfFiles.Count < 2)
             {
